@@ -1,0 +1,30 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos temporales
+*.tmp
+*.log
+*.swp
+*~
+
+# Archivos de backup
+*.bak
+*.backup
+
+# Archivos comprimidos (ya están en PAGINA_WEB)
+*.zip
+
+# Archivos de documentación que no necesitan estar en producción
+INSTRUCCIONES-LOCAL.md
+servidor-local.py
+servidor-local.bat
+
+# No ignorar archivos importantes
+!index.html
+!styles.css
+!script.js
+!README.md
+!PAGINA_WEB/
+
