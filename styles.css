@@ -96,9 +96,141 @@ ul {
     padding: var(--spacing-sm) 0;
 }
 
-.logo img {
+.logo {
+    position: relative;
+    display: inline-block;
+}
+
+/* Logo HTML/CSS - Propuesta 1 (Moderno con Casco) */
+.logo-html {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-html .helmet-logo {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.logo-html:hover .helmet-logo {
+    transform: scale(1.05);
+}
+
+.logo-html .helmet-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.logo-html .text-logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-html .text-logo-main {
+    font-size: 42px;
+    font-weight: 900;
+    color: #1E3A8A;
+    line-height: 1;
+    letter-spacing: -1px;
+    transition: color 0.3s ease;
+}
+
+.logo-html:hover .text-logo-main {
+    color: #1E40AF;
+}
+
+.logo-html .text-logo-sub {
+    font-size: 12px;
+    font-weight: 600;
+    color: #3B82F6;
+    letter-spacing: 1.5px;
+    margin-top: 3px;
+}
+
+/* Logo HTML/CSS - Propuesta 3 (Minimalista) */
+.logo-minimal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-minimal .helmet-logo {
+    width: 60px;
     height: 60px;
+}
+
+.logo-minimal .text-logo-main {
+    font-size: 36px;
+    font-weight: 800;
+    color: #1E3A8A;
+}
+
+.logo-minimal .text-logo-sub {
+    font-size: 10px;
+    font-weight: 400;
+    color: #3B82F6;
+    letter-spacing: 1px;
+}
+
+/* Logo HTML/CSS - Propuesta 5 (Monograma) */
+.logo-monogram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-monogram .monogram-box {
+    width: 100px;
+    height: 100px;
+    background: #FCD34D;
+    border: 3px solid #1E3A8A;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.logo-monogram:hover .monogram-box {
+    transform: scale(1.05);
+}
+
+.logo-monogram .monogram-text {
+    font-size: 40px;
+    font-weight: 900;
+    color: #1E3A8A;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.logo-monogram .text-logo-sub {
+    font-size: 10px;
+    font-weight: 500;
+    color: #3B82F6;
+    letter-spacing: 1.5px;
+}
+
+/* Mantener compatibilidad con logo de imagen */
+.logo img {
+    height: 120px;
     width: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
 }
 
 .nav-menu {
@@ -175,8 +307,10 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('PAGINA_WEB/REGISTRO_FOTOGRAFICO/WhatsApp Image 2025-09-24 at 12.42.47 PM.jpeg') center/cover;
-    opacity: 0.15;
+    background: url('PAGINA_WEB/REGISTRO_FOTOGRAFICO/inicio.jpeg') center/cover;
+    background-size: 100%;
+    background-position: center;
+    opacity: 0.5;
     z-index: 0;
 }
 
@@ -186,7 +320,7 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 64, 175, 0.85) 100%);
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.6) 0%, rgba(30, 64, 175, 0.55) 100%);
     z-index: 1;
 }
 
@@ -423,6 +557,7 @@ section {
     color: var(--color-gray-dark);
     margin-bottom: var(--spacing-md);
     line-height: 1.8;
+    text-align: justify;
 }
 
 .about-features {
@@ -466,12 +601,85 @@ section {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
 }
 
 .about-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* Carrusel de imágenes */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 680px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 680px;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Botones de navegación removidos - solo se usan los dots */
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.carousel-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    width: 30px;
+    border-radius: 6px;
+}
+
+.carousel-dots .dot:hover {
+    background: rgba(255, 255, 255, 0.8);
 }
 
 /* ============================================
@@ -585,11 +793,53 @@ section {
     color: var(--color-gray);
 }
 
+/* División por Tipo de Servicio */
+.services-division {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+}
+
+.service-type-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1E40AF 100%);
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+    text-align: center;
+    color: var(--color-white);
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.2);
+    transition: var(--transition);
+}
+
+.service-type-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(30, 58, 138, 0.3);
+}
+
+.service-type-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-type-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-white);
+}
+
+.service-type-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+}
+
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
 }
 
 .project-card {
@@ -607,10 +857,77 @@ section {
 
 .project-image {
     position: relative;
-    height: 250px;
+    height: 350px;
     overflow: hidden;
 }
 
+/* Carrusel dentro de project-image */
+.project-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.project-carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.project-carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.project-carousel-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.project-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 15;
+    pointer-events: auto;
+}
+
+.project-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-dot.active {
+    background-color: var(--color-secondary);
+    width: 30px;
+    border-radius: 5px;
+}
+
+.project-dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Fallback para imágenes sin carrusel */
 .project-image img {
     width: 100%;
     height: 100%;
@@ -619,7 +936,7 @@ section {
 }
 
 .project-card:hover .project-image img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .project-overlay {
@@ -628,10 +945,12 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
     display: flex;
     align-items: flex-end;
     padding: var(--spacing-md);
+    z-index: 5;
+    pointer-events: none;
 }
 
 .project-tag {
@@ -644,14 +963,33 @@ section {
 }
 
 .project-info {
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
 }
 
 .project-info h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
     color: var(--color-primary);
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-type {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-description {
+    color: var(--color-gray-dark);
+    line-height: 1.8;
+    margin: 0;
+    font-size: 1rem;
+    text-align: justify;
 }
 
 .project-info p {
@@ -736,6 +1074,7 @@ section {
     font-size: 1.3rem;
     margin-bottom: var(--spacing-md);
     opacity: 0.95;
+    text-align: justify;
 }
 
 .safety-features {
@@ -747,6 +1086,7 @@ section {
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-md);
     align-items: flex-start;
+    text-align: justify;
 }
 
 .safety-icon {
@@ -765,11 +1105,81 @@ section {
 }
 
 .safety-image {
+    position: relative;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    min-height: 400px;
 }
 
+/* Carrusel dentro de safety-image */
+.safety-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.safety-carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.safety-carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.safety-carousel-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.safety-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.safety-carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.safety-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.safety-dot.active {
+    background-color: var(--color-secondary);
+    width: 30px;
+    border-radius: 5px;
+}
+
+.safety-dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Fallback para imágenes sin carrusel */
 .safety-image img {
     width: 100%;
     height: 100%;
@@ -876,9 +1286,56 @@ section {
     margin-bottom: var(--spacing-sm);
 }
 
+/* Footer Logo - Propuesta 1 con fondo azul */
+.footer-logo-container {
+    background: transparent;
+    padding: 25px 30px;
+    border-radius: 15px;
+    margin-bottom: var(--spacing-md);
+    display: inline-block;
+}
+
+.footer-logo-1 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-helmet-1 {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-helmet-1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3));
+}
+
+.footer-text-1-main {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--color-white);
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.footer-text-1-sub {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-secondary);
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
 .footer-brand p {
-    opacity: 0.8;
+    opacity: 0.9;
     font-style: italic;
+    margin-top: var(--spacing-sm);
 }
 
 .footer-column h4 {
@@ -998,6 +1455,23 @@ section {
         transform: rotate(-45deg) translate(7px, -7px);
     }
     
+    .logo-html .helmet-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .logo-html .text-logo-main {
+        font-size: 32px;
+    }
+    
+    .logo-html .text-logo-sub {
+        font-size: 10px;
+    }
+    
+    .logo img {
+        height: 90px;
+    }
+    
     .hero-stats {
         grid-template-columns: 1fr;
     }
@@ -1008,15 +1482,63 @@ section {
         grid-template-columns: 1fr;
     }
     
+    .safety-carousel-container {
+        min-height: 350px;
+    }
+    
+    .carousel-container {
+        min-height: 500px;
+    }
+    
+    /* Botones de navegación removidos */
+    
+    .services-division {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-image {
+        height: 320px;
+    }
+    
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+    
+    .footer-logo-container {
+        padding: 20px 25px;
+    }
+    
+    .footer-helmet-1 {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .footer-text-1-main {
+        font-size: 36px;
+    }
+    
+    .footer-text-1-sub {
+        font-size: 12px;
     }
     
     .services-grid,
     .projects-grid,
     .why-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .services-division {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-image {
+        height: 300px;
     }
 }
 
@@ -1063,6 +1585,77 @@ section {
     .hero {
         min-height: 90vh;
         padding-top: 100px;
+    }
+    
+    .logo-html .helmet-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .logo-html .text-logo-main {
+        font-size: 28px;
+    }
+    
+    .logo-html .text-logo-sub {
+        font-size: 9px;
+    }
+    
+    .logo img {
+        height: 80px;
+    }
+    
+    .carousel-container {
+        min-height: 450px;
+    }
+    
+    /* Botones de navegación removidos */
+    
+    .carousel-dots {
+        bottom: 10px;
+    }
+    
+    .carousel-dots .dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .carousel-dots .dot.active {
+        width: 25px;
+    }
+    
+    .safety-carousel-container {
+        min-height: 300px;
+    }
+    
+    .safety-carousel-dots {
+        bottom: 15px;
+    }
+    
+    .safety-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .safety-dot.active {
+        width: 25px;
+    }
+    
+    .footer-logo-container {
+        padding: 15px 20px;
+    }
+    
+    .footer-helmet-1 {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .footer-text-1-main {
+        font-size: 28px;
+    }
+    
+    .footer-text-1-sub {
+        font-size: 10px;
+        letter-spacing: 1px;
     }
 }
 

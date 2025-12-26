@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquetas de Logotipos - JMBQ Construcciones SAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e5e7eb 100%);
+            padding: 40px 20px;
+            color: #1F2937;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #1E3A8A;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #6b7280;
+        }
+
+        .proposals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .proposal-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .proposal-number {
+            display: inline-block;
+            background: #FCD34D;
+            color: #1E3A8A;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .proposal-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1E3A8A;
+            margin-bottom: 10px;
+        }
+
+        .proposal-subtitle {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+        /* Área de visualización del logo */
+        .logo-preview {
+            background: #f9fafb;
+            border: 2px dashed #e5e7eb;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            position: relative;
+        }
+
+        .logo-preview.dark-bg {
+            background: #1E3A8A;
+        }
+
+        .logo-preview.white-bg {
+            background: white;
+        }
+
+        /* PROPUESTA 1: Moderno con Casco */
+        .logo-1 {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .helmet-icon-1 {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .helmet-icon-1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .text-1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text-1 .main {
+            font-size: 48px;
+            font-weight: 900;
+            color: #1E3A8A;
+            line-height: 1;
+        }
+
+        .text-1 .sub {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3B82F6;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* PROPUESTA 2: Corporativo con Adoquín */
+        .logo-2 {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .paver-icon-2 {
+            width: 70px;
+            height: 70px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .paver-icon-2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .text-2 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text-2 .main {
+            font-size: 52px;
+            font-weight: 900;
+            color: #1E3A8A;
+            letter-spacing: 4px;
+            line-height: 1;
+        }
+
+        .text-2 .sub {
+            font-size: 13px;
+            font-weight: 500;
+            color: #374151;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        /* PROPUESTA 3: Minimalista */
+        .logo-3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .helmet-icon-3 {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .helmet-icon-3 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+        }
+
+        .text-3 .main {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1E3A8A;
+            line-height: 1;
+        }
+
+        .text-3 .sub {
+            font-size: 11px;
+            font-weight: 400;
+            color: #3B82F6;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* PROPUESTA 4: Industrial */
+        .logo-4 {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .industrial-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .helmet-industrial {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .helmet-industrial img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .paver-industrial {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .paver-industrial img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .text-4 .main {
+            font-size: 56px;
+            font-weight: 900;
+            color: #1E3A8A;
+            line-height: 1;
+        }
+
+        .text-4 .sub {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E40AF;
+            margin-top: 5px;
+        }
+
+        /* PROPUESTA 5: Elegante Monograma */
+        .logo-5 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .monogram-container {
+            width: 120px;
+            height: 120px;
+            background: #FCD34D;
+            border: 4px solid #1E3A8A;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .monogram {
+            font-size: 48px;
+            font-weight: 900;
+            color: #1E3A8A;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .text-5 .sub {
+            font-size: 12px;
+            font-weight: 500;
+            color: #3B82F6;
+            letter-spacing: 2px;
+        }
+
+        /* PROPUESTA 6: Dinámico con Patrón */
+        .logo-6 {
+            position: relative;
+            padding: 30px;
+            background: repeating-linear-gradient(
+                45deg,
+                #1E3A8A 0px,
+                #1E3A8A 20px,
+                #3B82F6 20px,
+                #3B82F6 40px
+            );
+            border-radius: 15px;
+            opacity: 0.1;
+        }
+
+        .logo-6-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .helmet-accent {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .helmet-accent img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 3px 8px rgba(252, 211, 77, 0.5));
+        }
+
+        .text-6 .main {
+            font-size: 54px;
+            font-weight: 900;
+            color: #1E3A8A;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            line-height: 1;
+        }
+
+        .text-6 .sub {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FCD34D;
+            margin-top: 5px;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #374151;
+            margin: 20px 0;
+        }
+
+        .usage-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: #FEF3C7;
+            color: #1E3A8A;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .colors-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .color-swatch {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 8px;
+            vertical-align: middle;
+            border: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 768px) {
+            .proposals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-preview {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Propuestas de Logotipo</h1>
+            <p>JMBQ Construcciones SAS - 6 Propuestas Conceptuales</p>
+        </div>
+
+        <div class="proposals-grid">
+            <!-- PROPUESTA 1 -->
+            <div class="proposal-card">
+                <span class="proposal-number">PROPUESTA 1</span>
+                <h2 class="proposal-title">Moderno con Casco Integrado</h2>
+                <p class="proposal-subtitle">Estilo: Moderno | Composición: Horizontal</p>
+                
+                <div class="logo-preview white-bg">
+                    <div class="logo-1">
+                        <div class="helmet-icon-1">
+                            <img src="PAGINA_WEB/LOGOS/casco.png" alt="Casco de construcción">
+                        </div>
+                        <div class="text-1">
+                            <div class="main">JMBQ</div>
+                            <div class="sub">CONSTRUCCIONES SAS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    Logotipo horizontal moderno que integra un casco de construcción amarillo como elemento principal. El casco actúa como contenedor visual para las iniciales "JMBQ", creando una conexión inmediata con el sector construcción.
+                </div>
+
+                <div class="usage-tags">
+                    <span class="tag">Web</span>
+                    <span class="tag">Redes Sociales</span>
+                    <span class="tag">Papelería</span>
+                    <span class="tag">Señalización</span>
+                </div>
+
+                <div class="colors-info">
+                    <strong>Colores:</strong>
+                    <span class="color-swatch" style="background: #1E3A8A;"></span> Azul Principal
+                    <span class="color-swatch" style="background: #FCD34D;"></span> Amarillo
+                </div>
+            </div>
+
+            <!-- PROPUESTA 2 -->
+            <div class="proposal-card">
+                <span class="proposal-number">PROPUESTA 2</span>
+                <h2 class="proposal-title">Corporativo con Adoquín</h2>
+                <p class="proposal-subtitle">Estilo: Corporativo | Composición: Horizontal</p>
+                
+                <div class="logo-preview white-bg">
+                    <div class="logo-2">
+                        <div class="text-2">
+                            <div class="main">JMBQ</div>
+                            <div class="sub">CONSTRUCCIONES SAS</div>
+                        </div>
+                        <div class="paver-icon-2">
+                            <img src="PAGINA_WEB/LOGOS/VIBRADOR-ADOQUINES.jpg" alt="Vibrador de adoquines">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    Diseño corporativo y serio que incorpora un adoquín estilizado como elemento distintivo. Enfatiza la especialización de la empresa en adoquines con un estilo profesional y confiable.
+                </div>
+
+                <div class="usage-tags">
+                    <span class="tag">Papelería</span>
+                    <span class="tag">Documentos Oficiales</span>
+                    <span class="tag">Licitaciones</span>
+                    <span class="tag">Oficinas</span>
+                </div>
+
+                <div class="colors-info">
+                    <strong>Colores:</strong>
+                    <span class="color-swatch" style="background: #1E3A8A;"></span> Azul Principal
+                    <span class="color-swatch" style="background: #FCD34D;"></span> Amarillo
+                </div>
+            </div>
+
+            <!-- PROPUESTA 3 -->
+            <div class="proposal-card">
+                <span class="proposal-number">PROPUESTA 3</span>
+                <h2 class="proposal-title">Minimalista con Casco Estilizado</h2>
+                <p class="proposal-subtitle">Estilo: Minimalista | Composición: Vertical</p>
+                
+                <div class="logo-preview white-bg">
+                    <div class="logo-3">
+                        <div class="helmet-icon-3">
+                            <img src="PAGINA_WEB/LOGOS/casco.png" alt="Casco de construcción">
+                        </div>
+                        <div class="text-3">
+                            <div class="main">JMBQ</div>
+                            <div class="sub">CONSTRUCCIONES SAS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    Enfoque minimalista donde un casco de construcción muy estilizado se combina con tipografía limpia. Diseño simple pero memorable, ideal para aplicaciones digitales y tamaños pequeños.
+                </div>
+
+                <div class="usage-tags">
+                    <span class="tag">Favicon</span>
+                    <span class="tag">Redes Sociales</span>
+                    <span class="tag">Digital</span>
+                    <span class="tag">Merchandising</span>
+                </div>
+
+                <div class="colors-info">
+                    <strong>Colores:</strong>
+                    <span class="color-swatch" style="background: #1E3A8A;"></span> Azul Principal
+                    <span class="color-swatch" style="background: #FCD34D;"></span> Amarillo
+                </div>
+            </div>
+
+            <!-- PROPUESTA 4 -->
+            <div class="proposal-card">
+                <span class="proposal-number">PROPUESTA 4</span>
+                <h2 class="proposal-title">Industrial con Casco y Adoquín</h2>
+                <p class="proposal-subtitle">Estilo: Industrial | Composición: Horizontal</p>
+                
+                <div class="logo-preview white-bg">
+                    <div class="logo-4">
+                        <div class="industrial-icon">
+                            <div class="helmet-industrial">
+                                <img src="PAGINA_WEB/LOGOS/casco.png" alt="Casco de construcción">
+                            </div>
+                            <div class="paver-industrial">
+                                <img src="PAGINA_WEB/LOGOS/VIBRADOR-ADOQUINES.jpg" alt="Vibrador de adoquines">
+                            </div>
+                        </div>
+                        <div class="text-4">
+                            <div class="main">JMBQ</div>
+                            <div class="sub">CONSTRUCCIONES SAS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    Diseño robusto e industrial que combina casco amarillo y adoquín, creando una identidad visual fuerte que comunica experiencia, especialización técnica y confiabilidad.
+                </div>
+
+                <div class="usage-tags">
+                    <span class="tag">Vehículos</span>
+                    <span class="tag">Obras</span>
+                    <span class="tag">Señalización</span>
+                    <span class="tag">Uniformes</span>
+                </div>
+
+                <div class="colors-info">
+                    <strong>Colores:</strong>
+                    <span class="color-swatch" style="background: #1E3A8A;"></span> Azul Principal
+                    <span class="color-swatch" style="background: #FCD34D;"></span> Amarillo
+                    <span class="color-swatch" style="background: #3B82F6;"></span> Azul Medio
+                </div>
+            </div>
+
+            <!-- PROPUESTA 5 -->
+            <div class="proposal-card">
+                <span class="proposal-number">PROPUESTA 5</span>
+                <h2 class="proposal-title">Elegante con Monograma</h2>
+                <p class="proposal-subtitle">Estilo: Elegante | Composición: Cuadrada</p>
+                
+                <div class="logo-preview white-bg">
+                    <div class="logo-5">
+                        <div class="monogram-container">
+                            <div class="monogram">JMBQ</div>
+                        </div>
+                        <div class="text-5">
+                            <div class="sub">CONSTRUCCIONES SAS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    Diseño elegante que utiliza un monograma "JMBQ" dentro de un contenedor geométrico (que sugiere un adoquín), combinando sofisticación con identidad del sector.
+                </div>
+
+                <div class="usage-tags">
+                    <span class="tag">Papelería Premium</span>
+                    <span class="tag">Ejecutivo</span>
+                    <span class="tag">Digital</span>
+                    <span class="tag">Merchandising</span>
+                </div>
+
+                <div class="colors-info">
+                    <strong>Colores:</strong>
+                    <span class="color-swatch" style="background: #1E3A8A;"></span> Azul Principal
+                    <span class="color-swatch" style="background: #FCD34D;"></span> Amarillo
+                </div>
+            </div>
+
+            <!-- PROPUESTA 6 -->
+            <div class="proposal-card">
+                <span class="proposal-number">PROPUESTA 6</span>
+                <h2 class="proposal-title">Dinámico con Patrón de Adoquines</h2>
+                <p class="proposal-subtitle">Estilo: Dinámico | Composición: Horizontal</p>
+                
+                <div class="logo-preview white-bg">
+                    <div class="logo-6">
+                        <div class="logo-6-content">
+                            <div class="helmet-accent">
+                                <img src="PAGINA_WEB/LOGOS/casco.png" alt="Casco de construcción">
+                            </div>
+                            <div class="text-6">
+                                <div class="main">JMBQ</div>
+                                <div class="sub">CONSTRUCCIONES SAS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    Diseño dinámico que incorpora un patrón de adoquines como fondo sutil, con el texto "JMBQ" destacado y un casco amarillo como acento. Visualmente impactante y moderno.
+                </div>
+
+                <div class="usage-tags">
+                    <span class="tag">Marketing</span>
+                    <span class="tag">Web</span>
+                    <span class="tag">Redes Sociales</span>
+                    <span class="tag">Presentaciones</span>
+                </div>
+
+                <div class="colors-info">
+                    <strong>Colores:</strong>
+                    <span class="color-swatch" style="background: #1E3A8A;"></span> Azul Principal
+                    <span class="color-swatch" style="background: #FCD34D;"></span> Amarillo
+                    <span class="color-swatch" style="background: #3B82F6;"></span> Azul Medio
+                </div>
+            </div>
+        </div>
+
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); margin-top: 40px;">
+            <h2 style="color: #1E3A8A; margin-bottom: 20px; font-size: 32px;">📋 Notas Importantes</h2>
+            <div style="background: #FEF3C7; padding: 20px; border-radius: 10px; border-left: 4px solid #FCD34D; margin-bottom: 20px;">
+                <strong style="color: #1E3A8A; display: block; margin-bottom: 10px;">⚠️ Sobre las Maquetas Visuales:</strong>
+                <p style="color: #374151; line-height: 1.7;">
+                    Las maquetas que ves aquí son <strong>representaciones conceptuales creadas con CSS</strong> (formas geométricas y colores). 
+                    Los cascos y adoquines que ves son <strong>representaciones estilizadas</strong> usando código, no imágenes reales.
+                </p>
+                <p style="color: #374151; line-height: 1.7; margin-top: 10px;">
+                    Para los <strong>logos finales</strong>, se crearán <strong>ilustraciones vectoriales profesionales</strong> (SVG/PNG) 
+                    con cascos y adoquines dibujados de forma detallada y realista, manteniendo el mismo concepto visual pero con mayor 
+                    calidad y detalle gráfico.
+                </p>
+            </div>
+            <ul style="line-height: 2; color: #374151;">
+                <li>Estas son <strong>maquetas conceptuales</strong> creadas con CSS para visualización del concepto</li>
+                <li>Los logos finales se crearán como <strong>archivos PNG/SVG con fondo transparente</strong> con ilustraciones profesionales</li>
+                <li>Todas las propuestas utilizan los <strong>colores corporativos</strong> definidos en la página web</li>
+                <li>Cada propuesta incluye el texto <strong>"JMBQ Construcciones SAS"</strong> de forma clara y legible</li>
+                <li>Los elementos gráficos (casco/adoquín) estarán <strong>ilustrados profesionalmente</strong> en la versión final</li>
+                <li>Se pueden crear <strong>variantes</strong> (horizontal, vertical, compacto) según necesidad</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

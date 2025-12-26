@@ -1,0 +1,18 @@
+<svg width="400" height="150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .text-main { font-family: 'Inter', Arial, sans-serif; font-size: 48px; font-weight: 900; fill: #1E3A8A; }
+      .text-sub { font-family: 'Inter', Arial, sans-serif; font-size: 14px; font-weight: 600; fill: #3B82F6; letter-spacing: 2px; }
+    </style>
+  </defs>
+  
+  <!-- Casco -->
+  <image href="casco.png" x="0" y="35" width="80" height="80" preserveAspectRatio="xMidYMid meet"/>
+  
+  <!-- Texto JMBQ -->
+  <text x="100" y="80" class="text-main">JMBQ</text>
+  
+  <!-- Texto CONSTRUCCIONES SAS -->
+  <text x="100" y="100" class="text-sub">CONSTRUCCIONES SAS</text>
+</svg>
+

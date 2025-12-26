@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquetas Visuales - Brochure JMBQ Construcciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .proposals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .proposal-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .proposal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .proposal-number {
+            display: inline-block;
+            background: #FCD34D;
+            color: #1E3A8A;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .proposal-card h2 {
+            font-size: 32px;
+            font-weight: 900;
+            color: #1E3A8A;
+            margin-bottom: 10px;
+        }
+
+        .proposal-subtitle {
+            font-size: 18px;
+            font-weight: 600;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .proposal-description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 25px;
+        }
+
+        .proposal-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .proposal-features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .proposal-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #F59E0B;
+            font-weight: 800;
+        }
+
+        .proposal-button {
+            display: block;
+            background: #1E3A8A;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid #1E3A8A;
+        }
+
+        .proposal-button:hover {
+            background: #FCD34D;
+            color: #1E3A8A;
+            border-color: #FCD34D;
+        }
+
+        .proposal-1 {
+            border-top: 5px solid #1E3A8A;
+        }
+
+        .proposal-2 {
+            border-top: 5px solid #3B82F6;
+        }
+
+        .proposal-3 {
+            border-top: 5px solid #FCD34D;
+        }
+
+        .info-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .info-box h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .info-box p {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .proposals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📄 Maquetas Visuales del Brochure</h1>
+            <p>JMBQ Construcciones S.A.S. - 3 Propuestas Completas</p>
+        </div>
+
+        <div class="proposals-grid">
+            <!-- Propuesta 1 -->
+            <div class="proposal-card proposal-1">
+                <span class="proposal-number">PROPUESTA 1</span>
+                <h2>Corporativa y Sobria</h2>
+                <p class="proposal-subtitle">Versión Ejecutiva</p>
+                <p class="proposal-description">
+                    Diseño profesional y serio, ideal para presentaciones formales, licitaciones públicas y material institucional. Enfoque en credibilidad y profesionalismo.
+                </p>
+                <ul class="proposal-features">
+                    <li>Estilo corporativo y limpio</li>
+                    <li>Colores sobrios (azul dominante)</li>
+                    <li>Máximo profesionalismo</li>
+                    <li>Ideal para contextos formales</li>
+                </ul>
+                <a href="maqueta-propuesta-1-corporativa.html" class="proposal-button" target="_blank">
+                    Ver Maqueta Completa →
+                </a>
+            </div>
+
+            <!-- Propuesta 2 -->
+            <div class="proposal-card proposal-2">
+                <span class="proposal-number">PROPUESTA 2</span>
+                <h2>Moderna e Innovadora</h2>
+                <p class="proposal-subtitle">Versión Marketing</p>
+                <p class="proposal-description">
+                    Diseño moderno, impactante y visual, perfecto para ferias, eventos comerciales y marketing digital. Enfoque en atraer atención y ser memorable.
+                </p>
+                <ul class="proposal-features">
+                    <li>Estilo moderno y visual</li>
+                    <li>Colores vibrantes y contrastes</li>
+                    <li>Impacto visual máximo</li>
+                    <li>Ideal para marketing y ferias</li>
+                </ul>
+                <a href="maqueta-propuesta-2-moderna.html" class="proposal-button" target="_blank">
+                    Ver Maqueta Completa →
+                </a>
+            </div>
+
+            <!-- Propuesta 3 -->
+            <div class="proposal-card proposal-3">
+                <span class="proposal-number">PROPUESTA 3</span>
+                <h2>Comercial y Ventas</h2>
+                <p class="proposal-subtitle">Versión Conversión</p>
+                <p class="proposal-description">
+                    Diseño directo, persuasivo y orientado a la acción, perfecto para ventas directas y envío digital. Múltiples CTAs y enfoque en conversión.
+                </p>
+                <ul class="proposal-features">
+                    <li>Estilo comercial y directo</li>
+                    <li>Múltiples llamados a la acción</li>
+                    <li>Enfoque en beneficios</li>
+                    <li>Ideal para ventas directas</li>
+                </ul>
+                <a href="maqueta-propuesta-3-comercial.html" class="proposal-button" target="_blank">
+                    Ver Maqueta Completa →
+                </a>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>📋 Instrucciones</h3>
+            <p>
+                Haz clic en cualquier propuesta para ver la maqueta visual completa con las 6 páginas del brochure.
+                Cada maqueta muestra el diseño, colores, tipografía y distribución de contenido de cada propuesta.
+                Puedes usar la función de impresión del navegador (Ctrl+P) para generar un PDF de cada maqueta.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

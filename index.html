@@ -15,8 +15,14 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">
-                    <img src="PAGINA_WEB/LOGOS/logo 6 png.png" alt="JMBQ Construcciones S.A.S.">
+                <div class="logo logo-html">
+                    <div class="helmet-logo">
+                        <img src="PAGINA_WEB/LOGOS/casco.png" alt="Casco de construcción">
+                    </div>
+                    <div class="text-logo">
+                        <div class="text-logo-main">JMBQ</div>
+                        <div class="text-logo-sub">CONSTRUCCIONES SAS</div>
+                    </div>
                 </div>
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                     <span></span>
@@ -114,7 +120,24 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/WhatsApp Image 2025-09-24 at 12.42.47 PM.jpeg" alt="Equipo de trabajo JMBQ">
+                    <div class="carousel-container">
+                        <div class="carousel-slides">
+                            <div class="carousel-slide active">
+                                <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/Quienes_somos_1.jpeg" alt="Equipo de trabajo JMBQ">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/Quienes_somos_2.jpeg" alt="Proyecto JMBQ">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/Quienes_somos_3.jpeg" alt="Trabajo JMBQ">
+                            </div>
+                        </div>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-slide="0"></span>
+                            <span class="dot" data-slide="1"></span>
+                            <span class="dot" data-slide="2"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,7 +167,8 @@
                     <ul class="service-list">
                         <li>Preparación de terreno</li>
                         <li>Nivelación precisa</li>
-                        <li>Instalación con patrones especializados</li>
+                        <li>Instalación con patrones especializados y bajo requerimientos del cliente</li>
+                        <li>Compactación, alineación y sellado de adoquín</li>
                         <li>Control de calidad estricto</li>
                     </ul>
                 </div>
@@ -156,11 +180,12 @@
                     </div>
                     <h3>Mantenimiento y Reparación</h3>
                     <p>
-                        Servicios de mantenimiento preventivo y correctivo para mantener sus adoquines en óptimas condiciones a lo largo del tiempo.
+                        Servicios de mantenimiento preventivo y correctivo de áreas adoquinadas, asegurando resistencia y calidad en el tiempo.
                     </p>
                     <ul class="service-list">
                         <li>Inspección periódica</li>
-                        <li>Reparación de daños</li>
+                        <li>Reparación de la base en suelo cemento o concreto</li>
+                        <li>Reparación en deformación de adoquines</li>
                         <li>Reemplazo de piezas</li>
                         <li>Limpieza y sellado</li>
                     </ul>
@@ -191,68 +216,85 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Nuestro Trabajo</span>
-                <h2 class="section-title">Proyectos Destacados</h2>
+                <h2 class="section-title">NUESTROS PROYECTOS</h2>
                 <p class="section-description">
                     Hemos trabajado con empresas líderes en el sector portuario e industrial
                 </p>
             </div>
-            <div class="clients-showcase">
-                <div class="client-badge">
-                    <h3>Sociedad Portuaria</h3>
-                    <p>Proyectos de pavimentación en instalaciones portuarias</p>
+
+            <!-- División por Tipo de Servicio -->
+            <div class="services-division">
+                <div class="service-type-card">
+                    <div class="service-type-icon">🔧</div>
+                    <h3>Instalación</h3>
+                    <p>Instalamos más del 60 % de los patios de Contecar y Sociedad Portuaria.</p>
                 </div>
-                <div class="client-badge">
-                    <h3>Contecar</h3>
-                    <p>Instalación de adoquines en terminales de contenedores</p>
+                <div class="service-type-card">
+                    <div class="service-type-icon">🛠️</div>
+                    <h3>Mantenimiento</h3>
+                    <p>Garantizamos la continuidad operativa y durabilidad de las intervenciones mediante mantenimiento integral especializado, asegurando la máxima resistencia y funcionalidad de las superficies adoquinadas.</p>
                 </div>
             </div>
+
+            <!-- Proyectos Destacados -->
             <div class="projects-grid">
+                <!-- Proyecto: Contecar -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/WhatsApp Image 2025-09-24 at 12.42.47 PM.jpeg" alt="Proyecto Contecar">
+                        <div class="project-carousel-container">
+                            <div class="project-carousel-slides">
+                                <div class="project-carousel-slide active">
+                                    <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/PROYECTO_CONTECAR.jpeg" alt="Proyecto Contecar - Módulos 4A, 5A, 5B y 5C">
+                                </div>
+                                <div class="project-carousel-slide">
+                                    <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/PROYECTO_CONTECAR_2.jpeg" alt="Proyecto Contecar - Detalle de instalación">
+                                </div>
+                            </div>
+                            <div class="project-carousel-dots">
+                                <span class="project-dot active" data-slide="0"></span>
+                                <span class="project-dot" data-slide="1"></span>
+                            </div>
+                        </div>
                         <div class="project-overlay">
-                            <span class="project-tag">Proyecto Industrial</span>
+                            <span class="project-tag">Instalación</span>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Contecar - Zona Módulo 4A</h3>
-                        <p>Instalación de adoquines en terminal portuaria con tráfico pesado constante</p>
+                        <h3>CONTECAR</h3>
+                        <p class="project-type">Tipo: Instalación</p>
+                        <p class="project-description">
+                            Proyecto CONTECAR (2025): mantenimiento de los módulos de contenedores 4A, 5A, 5B y 5C. Ejecución de más de 2.000 m² de plantilla de concreto con mixer, recuperación del 85 % de los adoquines e instalación de más de 2.500 m² de adoquinado. Supervisión permanente mediante topografía para garantizar las tolerancias de nivel exigidas para el almacenamiento de contenedores.
+                        </p>
                     </div>
                 </div>
+
+                <!-- Proyecto: Sociedad Portuaria -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/WhatsApp Image 2025-09-24 at 12.42.48 PM.jpeg" alt="Proyecto JMBQ">
+                        <div class="project-carousel-container">
+                            <div class="project-carousel-slides">
+                                <div class="project-carousel-slide active">
+                                    <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/PROYECTO_SOCIEDAD.jpeg" alt="Proyecto Sociedad Portuaria - Mantenimiento integral">
+                                </div>
+                                <div class="project-carousel-slide">
+                                    <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/PROYECTO_SOCIEDAD_2.jpeg" alt="Proyecto Sociedad Portuaria - Detalle de intervención">
+                                </div>
+                            </div>
+                            <div class="project-carousel-dots">
+                                <span class="project-dot active" data-slide="0"></span>
+                                <span class="project-dot" data-slide="1"></span>
+                            </div>
+                        </div>
                         <div class="project-overlay">
-                            <span class="project-tag">Proyecto Industrial</span>
+                            <span class="project-tag">Mantenimiento</span>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Proyecto Portuario</h3>
-                        <p>Pavimentación de áreas de alto tráfico con adoquines de máxima resistencia</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/WhatsApp Image 2025-09-24 at 2.42.07 PM.jpeg" alt="Proyecto JMBQ">
-                        <div class="project-overlay">
-                            <span class="project-tag">Proyecto Industrial</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Instalación Profesional</h3>
-                        <p>Trabajo realizado con precisión y atención al detalle</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/WhatsApp Image 2025-09-24 at 2.42.08 PM.jpeg" alt="Proyecto JMBQ">
-                        <div class="project-overlay">
-                            <span class="project-tag">Proyecto Industrial</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Área de Contenedores</h3>
-                        <p>Pavimentación resistente para operaciones portuarias intensivas</p>
+                        <h3>Sociedad Portuaria</h3>
+                        <p class="project-type">Tipo: Mantenimiento</p>
+                        <p class="project-description">
+                            Mantenimiento integral de vías adoquinadas en la Sociedad Portuaria. Durante 2025 se ejecutaron más de 2.000 m² de intervención, reforzando la base con suelo-cemento y concreto fabricado en sitio o con mixer, logrando la recuperación de más del 80 % de los adoquines.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -279,8 +321,8 @@
                 </div>
                 <div class="why-card">
                     <div class="why-number">03</div>
-                    <h3>Seguridad y Cumplimiento</h3>
-                    <p>Priorizamos la seguridad en cada proyecto. Cumplimos con todas las normativas y estándares de seguridad laboral e industrial.</p>
+                    <h3>App Móvil de Gestión y Seguimiento</h3>
+                    <p>Aplicación móvil para el control diario de actividades, solicitudes y reporte de novedades en áreas adoquinadas, con información en tiempo real.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">04</div>
@@ -297,6 +339,11 @@
                     <h3>Clientes de Confianza</h3>
                     <p>Hemos trabajado con empresas líderes como Sociedad Portuaria y Contecar, lo que demuestra nuestra capacidad y confiabilidad.</p>
                 </div>
+                <div class="why-card">
+                    <div class="why-number">07</div>
+                    <h3>Seguridad y Cumplimiento</h3>
+                    <p>Priorizamos la seguridad en cada proyecto. Cumplimos con todas las normativas y estándares de seguridad laboral e industrial.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -309,7 +356,7 @@
                     <span class="section-tag">Nuestro Compromiso</span>
                     <h2 class="section-title">Seguridad y Calidad</h2>
                     <p class="lead">
-                        En JMBQ Construcciones S.A.S., la seguridad y la calidad no son negociables. Son los pilares fundamentales de cada proyecto que emprendemos.
+                        En JMBQ Construcciones S.A.S., la seguridad, calidad y compromiso ambiental no son negociables. Son los pilares fundamentales de cada proyecto que emprendemos.
                     </p>
                     <div class="safety-features">
                         <div class="safety-item">
@@ -333,10 +380,30 @@
                                 <p>Aplicación de mejores prácticas reconocidas mundialmente</p>
                             </div>
                         </div>
+                        <div class="safety-item">
+                            <div class="safety-icon">🌱</div>
+                            <div>
+                                <h4>Compromiso Ambiental</h4>
+                                <p>Cumplimiento estricto de la normatividad territorial y ambiental, garantizando prácticas sostenibles en cada proyecto</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="safety-image">
-                    <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/WhatsApp Image 2025-09-24 at 2.42.09 PM.jpeg" alt="Equipo de seguridad">
+                    <div class="safety-carousel-container">
+                        <div class="safety-carousel-slides">
+                            <div class="safety-carousel-slide active">
+                                <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/SEGURIDAD_INDUSTRIAL_1.jpeg" alt="Seguridad Industrial JMBQ - Protocolos de seguridad">
+                            </div>
+                            <div class="safety-carousel-slide">
+                                <img src="PAGINA_WEB/REGISTRO_FOTOGRAFICO/SEGURIDAD_INDUSTRIAL_2.jpeg" alt="Seguridad Industrial JMBQ - Equipos de protección">
+                            </div>
+                        </div>
+                        <div class="safety-carousel-dots">
+                            <span class="safety-dot active" data-slide="0"></span>
+                            <span class="safety-dot" data-slide="1"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -347,7 +414,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Contáctanos</span>
-                <h2 class="section-title">Hablemos de Tu Proyecto</h2>
+                <h2 class="section-title">Hablemos de tu Proyecto</h2>
                 <p class="section-description">
                     Estamos listos para ayudarte a materializar tu proyecto. Contáctanos y recibe una cotización personalizada.
                 </p>
@@ -401,29 +468,23 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="PAGINA_WEB/LOGOS/logo 6 png.png" alt="JMBQ Construcciones S.A.S.">
-                    <p>20 años pavimentando confianza</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Empresa</h4>
-                        <ul>
-                            <li><a href="#nosotros">Quiénes Somos</a></li>
-                            <li><a href="#servicios">Servicios</a></li>
-                            <li><a href="#proyectos">Proyectos</a></li>
-                        </ul>
+                    <div class="footer-logo-container">
+                        <div class="footer-logo-1">
+                            <div class="footer-helmet-1">
+                                <img src="PAGINA_WEB/LOGOS/casco.png" alt="Casco de construcción">
+                            </div>
+                            <div>
+                                <div class="footer-text-1-main">JMBQ</div>
+                                <div class="footer-text-1-sub">CONSTRUCCIONES SAS</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="footer-column">
-                        <h4>Contacto</h4>
-                        <ul>
-                            <li><a href="https://wa.me/573202467052" target="_blank">WhatsApp</a></li>
-                            <li><a href="#contacto">Cotización</a></li>
-                        </ul>
-                    </div>
+                    <p class="footer-tagline">20 años pavimentando confianza</p>
+                    <p class="footer-address">Cartagena de Indias, Bolívar – Barrio Corales, Manzana N, Lote 19</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 JMBQ Construcciones S.A.S. Todos los derechos reservados.</p>
+                <p>© 2025 JMBQ Construcciones S.A.S. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>

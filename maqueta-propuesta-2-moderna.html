@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta 2: Brochure Moderno - JMBQ Construcciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .brochure-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            margin: 20px auto;
+            padding: 20mm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            page-break-after: always;
+        }
+
+        /* Propuesta 2: Colores Modernos y Vibrantes */
+        .prop2-primary { color: #3B82F6; }
+        .prop2-secondary { color: #FCD34D; }
+        .prop2-bg-primary { background: #3B82F6; }
+        .prop2-bg-secondary { background: #FCD34D; }
+
+        /* Página 1: Portada Impactante */
+        .page-1 {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E3A8A 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('PAGINA_WEB/REGISTRO_FOTOGRAFICO/WhatsApp Image 2025-09-24 at 12.42.47 PM.jpeg') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .page-1-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-placeholder {
+            width: 250px;
+            height: 100px;
+            background: rgba(255,255,255,0.2);
+            border: 3px solid rgba(255,255,255,0.5);
+            margin: 0 auto 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .page-1 h1 {
+            font-size: 96px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .page-1 .highlight {
+            color: #FCD34D;
+            display: block;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .decorative-line {
+            width: 200px;
+            height: 4px;
+            background: #FCD34D;
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+
+        .page-1 .subtitle {
+            font-size: 28px;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-top: 20px;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(252, 211, 77, 0.2);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 50px;
+            right: 50px;
+            z-index: 0;
+        }
+
+        /* Página 2: Quiénes Somos + Estadísticas */
+        .page-2 {
+            background: linear-gradient(135deg, #F9FAFB 0%, #E5E7EB 100%);
+        }
+
+        .page-2 h2 {
+            font-size: 64px;
+            font-weight: 900;
+            color: #1E3A8A;
+            margin-bottom: 30px;
+        }
+
+        .page-2-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 40px;
+        }
+
+        .page-2-text .lead {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E3A8A;
+            margin-bottom: 20px;
+        }
+
+        .stats-modern {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat-modern-box {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E3A8A 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.3s;
+        }
+
+        .stat-modern-box:nth-child(2) {
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+            transform: perspective(1000px) rotateY(5deg);
+            box-shadow: 0 10px 30px rgba(252, 211, 77, 0.3);
+        }
+
+        .stat-modern-number {
+            font-size: 72px;
+            font-weight: 900;
+            color: white;
+            display: block;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .stat-modern-label {
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0.95;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .image-modern {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E3A8A 100%);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 30px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Página 3: Servicios Visuales */
+        .page-3 {
+            background: white;
+        }
+
+        .page-3 h2 {
+            font-size: 64px;
+            font-weight: 900;
+            color: #1E3A8A;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .services-modern-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-modern-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .service-modern-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: #FCD34D;
+        }
+
+        .service-modern-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3B82F6 0%, #1E3A8A 100%);
+            border-radius: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .service-modern-card:nth-child(2) .service-modern-icon {
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+            box-shadow: 0 5px 15px rgba(252, 211, 77, 0.3);
+        }
+
+        .service-modern-card h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1E3A8A;
+            margin-bottom: 15px;
+        }
+
+        .service-modern-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .service-modern-list {
+            list-style: none;
+            font-size: 13px;
+            color: #374151;
+        }
+
+        .service-modern-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .service-modern-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #F59E0B;
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        /* Página 4: Seguridad y Calidad Visual */
+        .page-4 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            color: white;
+        }
+
+        .page-4 h2 {
+            font-size: 64px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .page-4 .subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .safety-modern-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .safety-modern-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .safety-modern-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .safety-modern-item h4 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .safety-modern-item p {
+            font-size: 14px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Página 5: Proyectos Galería */
+        .page-5 {
+            background: #F9FAFB;
+        }
+
+        .page-5 h2 {
+            font-size: 64px;
+            font-weight: 900;
+            color: #1E3A8A;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .clients-modern {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .client-modern-badge {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 6px solid #FCD34D;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .client-modern-badge h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1E3A8A;
+            margin-bottom: 10px;
+        }
+
+        .client-modern-badge p {
+            font-size: 15px;
+            color: #6b7280;
+        }
+
+        .projects-modern-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-modern-card {
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 150px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-modern-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(30, 58, 138, 0.9), transparent);
+            padding: 20px;
+            color: white;
+        }
+
+        .project-modern-tag {
+            background: #FCD34D;
+            color: #1E3A8A;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        /* Página 6: Por Qué Elegirnos + Contacto */
+        .page-6 {
+            background: white;
+        }
+
+        .why-modern-section {
+            margin-bottom: 40px;
+        }
+
+        .why-modern-section h2 {
+            font-size: 64px;
+            font-weight: 900;
+            color: #1E3A8A;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .why-modern-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .why-modern-item {
+            background: linear-gradient(135deg, #F9FAFB 0%, #E5E7EB 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #FCD34D;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .why-modern-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: #FCD34D;
+            margin-bottom: 10px;
+        }
+
+        .why-modern-item h4 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #1E3A8A;
+            margin-bottom: 8px;
+        }
+
+        .why-modern-item p {
+            font-size: 13px;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .contact-modern-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(30, 58, 138, 0.3);
+        }
+
+        .contact-modern-section h3 {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 25px;
+        }
+
+        .contact-modern-info {
+            font-size: 16px;
+            line-height: 2.2;
+        }
+
+        .contact-modern-info strong {
+            display: block;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.2);
+            border: 3px solid rgba(255,255,255,0.4);
+            border-radius: 15px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 15mm;
+            right: 20mm;
+            font-size: 12px;
+            color: #9ca3af;
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure-container">
+        <!-- PÁGINA 1: PORTADA IMPACTANTE -->
+        <div class="page page-1">
+            <div class="geometric-shape"></div>
+            <div class="page-1-content">
+                <div class="logo-placeholder">LOGO JMBQ</div>
+                <h1>
+                    <span class="highlight">20 AÑOS</span>
+                    PAVIMENTANDO
+                    CONFIANZA
+                </h1>
+                <div class="decorative-line"></div>
+                <p class="subtitle">
+                    Especialistas en adoquines<br>
+                    para proyectos industriales
+                </p>
+            </div>
+            <div class="page-number">1</div>
+        </div>
+
+        <!-- PÁGINA 2: QUIÉNES SOMOS + ESTADÍSTICAS -->
+        <div class="page page-2">
+            <h2>QUIÉNES SOMOS</h2>
+            <div class="page-2-text">
+                <p class="lead">
+                    <strong>JMBQ Construcciones S.A.S.</strong> Especialistas en instalación y mantenimiento de adoquines con más de 20 años de experiencia en construcción industrial.
+                </p>
+                <p>
+                    Nos destacamos por trabajar con los más altos estándares de calidad, seguridad y cumplimiento, siendo la elección confiable para empresas líderes en el sector portuario e industrial.
+                </p>
+            </div>
+            <div class="stats-modern">
+                <div class="stat-modern-box">
+                    <span class="stat-modern-number">20+</span>
+                    <span class="stat-modern-label">Años de Experiencia</span>
+                </div>
+                <div class="stat-modern-box">
+                    <span class="stat-modern-number">100+</span>
+                    <span class="stat-modern-label">Proyectos Completados</span>
+                </div>
+                <div class="stat-modern-box">
+                    <span class="stat-modern-number">100%</span>
+                    <span class="stat-modern-label">Satisfacción</span>
+                </div>
+            </div>
+            <div class="image-modern">[Fotografía: Proyecto destacado]</div>
+            <div class="page-number">2</div>
+        </div>
+
+        <!-- PÁGINA 3: SERVICIOS VISUALES -->
+        <div class="page page-3">
+            <h2>NUESTROS SERVICIOS</h2>
+            <div class="services-modern-grid">
+                <div class="service-modern-card">
+                    <div class="service-modern-icon">📐</div>
+                    <h3>INSTALACIÓN DE ADOQUINES</h3>
+                    <p>Para áreas industriales, portuarias y comerciales. Garantizamos durabilidad y resistencia.</p>
+                    <ul class="service-modern-list">
+                        <li>Preparación de terreno</li>
+                        <li>Nivelación precisa</li>
+                        <li>Patrones especializados</li>
+                        <li>Control de calidad</li>
+                    </ul>
+                </div>
+                <div class="service-modern-card">
+                    <div class="service-modern-icon">🔧</div>
+                    <h3>MANTENIMIENTO Y REPARACIÓN</h3>
+                    <p>Servicios preventivos y correctivos para mantener sus adoquines en óptimas condiciones.</p>
+                    <ul class="service-modern-list">
+                        <li>Inspección periódica</li>
+                        <li>Reparación de daños</li>
+                        <li>Reemplazo de piezas</li>
+                        <li>Limpieza y sellado</li>
+                    </ul>
+                </div>
+                <div class="service-modern-card">
+                    <div class="service-modern-icon">📋</div>
+                    <h3>ASESORÍA TÉCNICA</h3>
+                    <p>Consultoría especializada para seleccionar el tipo de adoquín adecuado para su proyecto.</p>
+                    <ul class="service-modern-list">
+                        <li>Análisis de requerimientos</li>
+                        <li>Recomendaciones técnicas</li>
+                        <li>Presupuestos detallados</li>
+                        <li>Seguimiento post-instalación</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-number">3</div>
+        </div>
+
+        <!-- PÁGINA 4: SEGURIDAD Y CALIDAD VISUAL -->
+        <div class="page page-4">
+            <h2>SEGURIDAD Y CALIDAD</h2>
+            <p class="subtitle">Nuestros pilares fundamentales</p>
+            <div class="safety-modern-grid">
+                <div class="safety-modern-item">
+                    <div class="safety-modern-icon">🛡️</div>
+                    <h4>PROTOCOLOS DE SEGURIDAD</h4>
+                    <p>Cumplimiento estricto de normas de seguridad laboral e industrial</p>
+                </div>
+                <div class="safety-modern-item">
+                    <div class="safety-modern-icon">✅</div>
+                    <h4>CONTROL DE CALIDAD</h4>
+                    <p>Inspecciones rigurosas en cada etapa del proyecto</p>
+                </div>
+                <div class="safety-modern-item">
+                    <div class="safety-modern-icon">📋</div>
+                    <h4>ESTÁNDARES INTERNACIONALES</h4>
+                    <p>Aplicación de mejores prácticas reconocidas mundialmente</p>
+                </div>
+            </div>
+            <div class="image-modern" style="margin-top: 40px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3);">[Fotografía: Equipo con EPP trabajando]</div>
+            <div class="page-number" style="color: rgba(255,255,255,0.5);">4</div>
+        </div>
+
+        <!-- PÁGINA 5: PROYECTOS GALERÍA -->
+        <div class="page page-5">
+            <h2>PROYECTOS DESTACADOS</h2>
+            <div class="clients-modern">
+                <div class="client-modern-badge">
+                    <h3>Sociedad Portuaria</h3>
+                    <p>Proyectos de pavimentación en instalaciones portuarias</p>
+                </div>
+                <div class="client-modern-badge">
+                    <h3>Contecar</h3>
+                    <p>Instalación de adoquines en terminales de contenedores</p>
+                </div>
+            </div>
+            <div class="projects-modern-grid">
+                <div class="project-modern-card">
+                    <div class="project-modern-overlay">
+                        <span class="project-modern-tag">Proyecto Industrial</span>
+                    </div>
+                </div>
+                <div class="project-modern-card">
+                    <div class="project-modern-overlay">
+                        <span class="project-modern-tag">Proyecto Industrial</span>
+                    </div>
+                </div>
+                <div class="project-modern-card">
+                    <div class="project-modern-overlay">
+                        <span class="project-modern-tag">Proyecto Industrial</span>
+                    </div>
+                </div>
+                <div class="project-modern-card">
+                    <div class="project-modern-overlay">
+                        <span class="project-modern-tag">Proyecto Industrial</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">5</div>
+        </div>
+
+        <!-- PÁGINA 6: POR QUÉ ELEGIRNOS + CONTACTO -->
+        <div class="page page-6">
+            <div class="why-modern-section">
+                <h2>POR QUÉ ELEGIRNOS</h2>
+                <div class="why-modern-grid">
+                    <div class="why-modern-item">
+                        <div class="why-modern-number">01</div>
+                        <h4>EXPERIENCIA COMPROBADA</h4>
+                        <p>Más de 20 años en el mercado nos respaldan</p>
+                    </div>
+                    <div class="why-modern-item">
+                        <div class="why-modern-number">02</div>
+                        <h4>ALTA CALIDAD</h4>
+                        <p>Estándares internacionales y materiales de primera</p>
+                    </div>
+                    <div class="why-modern-item">
+                        <div class="why-modern-number">03</div>
+                        <h4>SEGURIDAD Y CUMPLIMIENTO</h4>
+                        <p>Normativas y estándares de seguridad laboral</p>
+                    </div>
+                    <div class="why-modern-item">
+                        <div class="why-modern-number">04</div>
+                        <h4>COMPROMISO CON EL CLIENTE</h4>
+                        <p>Proyectos a tiempo, dentro del presupuesto</p>
+                    </div>
+                    <div class="why-modern-item">
+                        <div class="why-modern-number">05</div>
+                        <h4>EQUIPO ESPECIALIZADO</h4>
+                        <p>Personal altamente capacitado y certificado</p>
+                    </div>
+                    <div class="why-modern-item">
+                        <div class="why-modern-number">06</div>
+                        <h4>CLIENTES DE CONFIANZA</h4>
+                        <p>Empresas líderes confían en nosotros</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-modern-section">
+                <h3>CONTACTO</h3>
+                <div class="contact-modern-info">
+                    <strong>JMBQ CONSTRUCCIONES S.A.S.</strong>
+                    <br>📱 +57 320 246 7052
+                    <br>🌐 [URL sitio web]
+                    <br><br>
+                    <strong>Horario de Atención:</strong>
+                    <br>Lunes a Viernes: 7:00 AM - 5:00 PM
+                    <br>Sábados: 7:00 AM - 12:00 PM
+                </div>
+                <div class="qr-placeholder">QR CODE<br>WhatsApp</div>
+                <p style="text-align: center; margin-top: 20px; font-size: 14px; opacity: 0.9;">
+                    "Estamos listos para ayudarte. Escanea el código y contáctanos ahora."
+                </p>
+            </div>
+            <div class="page-number">6</div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
