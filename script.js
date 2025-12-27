@@ -278,69 +278,43 @@ if (carouselSlides.length > 0) {
 }
 
 // ============================================
-// CARRUSELES DE PROYECTOS
+// CARRUSELES SINCRONIZADOS DE PROYECTOS (Imagen + Texto)
 // ============================================
-const projectCarouselContainers = document.querySelectorAll('.project-carousel-container');
+const projectTabs = document.querySelectorAll('.project-tab');
 
-projectCarouselContainers.forEach(container => {
-    const slides = container.querySelectorAll('.project-carousel-slide');
-    const dots = container.querySelectorAll('.project-dot');
-    let currentProjectSlide = 0;
-    let projectCarouselInterval;
-
-    function showProjectSlide(index) {
-        // Remover clase active de todas las slides y dots
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
+projectTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+        const projectCard = this.closest('.project-card');
+        const projectName = this.getAttribute('data-project');
+        const type = this.getAttribute('data-type');
         
-        // Asegurar que el índice esté dentro del rango
-        if (index >= slides.length) {
-            currentProjectSlide = 0;
-        } else if (index < 0) {
-            currentProjectSlide = slides.length - 1;
-        } else {
-            currentProjectSlide = index;
-        }
+        // Remover active de todos los tabs del mismo proyecto
+        const allTabsInProject = projectCard.querySelectorAll('.project-tab');
+        allTabsInProject.forEach(t => t.classList.remove('active'));
         
-        // Agregar clase active a la slide y dot actuales
-        if (slides[currentProjectSlide]) {
-            slides[currentProjectSlide].classList.add('active');
-        }
-        if (dots[currentProjectSlide]) {
-            dots[currentProjectSlide].classList.add('active');
-        }
-    }
-
-    function nextProjectSlide() {
-        showProjectSlide(currentProjectSlide + 1);
-    }
-
-    function startProjectCarousel() {
-        projectCarouselInterval = setInterval(nextProjectSlide, 5000); // Cambia cada 5 segundos
-    }
-
-    function stopProjectCarousel() {
-        clearInterval(projectCarouselInterval);
-    }
-
-    // Event listeners para los dots
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            stopProjectCarousel();
-            showProjectSlide(index);
-            startProjectCarousel();
+        // Activar el tab clickeado
+        this.classList.add('active');
+        
+        // Cambiar imagen sincronizada
+        const imageSlides = projectCard.querySelectorAll('.project-carousel-slide');
+        imageSlides.forEach(slide => {
+            if (slide.getAttribute('data-type') === type) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+        
+        // Cambiar texto sincronizado
+        const textSlides = projectCard.querySelectorAll('.project-text-slide');
+        textSlides.forEach(slide => {
+            if (slide.getAttribute('data-type') === type) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
         });
     });
-
-    // Pausar carrusel al hacer hover
-    container.addEventListener('mouseenter', stopProjectCarousel);
-    container.addEventListener('mouseleave', startProjectCarousel);
-
-    // Iniciar carrusel automático
-    if (slides.length > 0) {
-        showProjectSlide(0);
-        startProjectCarousel();
-    }
 });
 
 // ============================================
