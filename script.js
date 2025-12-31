@@ -282,6 +282,59 @@ if (carouselSlides.length > 0) {
 // ============================================
 const projectTabs = document.querySelectorAll('.project-tab');
 
+// Función para mostrar un slide específico de un tipo
+function showProjectSlide(projectCard, type, slideIndex = 0) {
+    const imageSlides = projectCard.querySelectorAll('.project-carousel-slide');
+    const dots = projectCard.querySelectorAll('.project-dot');
+    
+    // Ocultar todas las slides
+    imageSlides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    
+    // Mostrar solo la slide del tipo y índice especificados
+    imageSlides.forEach(slide => {
+        if (slide.getAttribute('data-type') === type) {
+            const slideIdx = parseInt(slide.getAttribute('data-slide-index') || '0');
+            if (slideIdx === slideIndex) {
+                slide.classList.add('active');
+            }
+        }
+    });
+    
+    // Actualizar dots
+    dots.forEach(dot => {
+        const dotType = dot.closest('.project-carousel-dots')?.getAttribute('data-type');
+        if (dotType === type) {
+            const dotIdx = parseInt(dot.getAttribute('data-slide-index') || '0');
+            if (dotIdx === slideIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        }
+    });
+}
+
+// Función para mostrar/ocultar dots según el tipo activo
+function updateProjectCarouselDots(projectCard, activeType) {
+    const allDotsContainers = projectCard.querySelectorAll('.project-carousel-dots');
+    allDotsContainers.forEach(container => {
+        const containerType = container.getAttribute('data-type');
+        if (containerType === activeType) {
+            // Contar cuántas slides hay de este tipo
+            const slidesOfType = projectCard.querySelectorAll(`.project-carousel-slide[data-type="${activeType}"]`);
+            if (slidesOfType.length > 1) {
+                container.style.display = 'flex';
+            } else {
+                container.style.display = 'none';
+            }
+        } else {
+            container.style.display = 'none';
+        }
+    });
+}
+
 projectTabs.forEach(tab => {
     tab.addEventListener('click', function() {
         const projectCard = this.closest('.project-card');
@@ -295,15 +348,11 @@ projectTabs.forEach(tab => {
         // Activar el tab clickeado
         this.classList.add('active');
         
-        // Cambiar imagen sincronizada
-        const imageSlides = projectCard.querySelectorAll('.project-carousel-slide');
-        imageSlides.forEach(slide => {
-            if (slide.getAttribute('data-type') === type) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
-        });
+        // Mostrar la primera slide del tipo seleccionado
+        showProjectSlide(projectCard, type, 0);
+        
+        // Actualizar visibilidad de dots
+        updateProjectCarouselDots(projectCard, type);
         
         // Cambiar texto sincronizado
         const textSlides = projectCard.querySelectorAll('.project-text-slide');
@@ -314,6 +363,18 @@ projectTabs.forEach(tab => {
                 slide.classList.remove('active');
             }
         });
+    });
+});
+
+// Manejar clicks en los dots del carrusel de proyectos
+document.querySelectorAll('.project-dot').forEach(dot => {
+    dot.addEventListener('click', function() {
+        const dotsContainer = this.closest('.project-carousel-dots');
+        const projectCard = dotsContainer.closest('.project-card');
+        const type = dotsContainer.getAttribute('data-type');
+        const slideIndex = parseInt(this.getAttribute('data-slide-index') || '0');
+        
+        showProjectSlide(projectCard, type, slideIndex);
     });
 });
 
@@ -382,6 +443,26 @@ if (safetyCarouselContainer) {
         startSafetyCarousel();
     }
 }
+
+// ============================================
+// INICIALIZACIÓN DE CARRUSELES DE PROYECTOS
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar estado de dots para cada proyecto
+    document.querySelectorAll('.project-card').forEach(projectCard => {
+        // Encontrar el tab activo
+        const activeTab = projectCard.querySelector('.project-tab.active');
+        if (activeTab) {
+            const activeType = activeTab.getAttribute('data-type');
+            updateProjectCarouselDots(projectCard, activeType);
+        } else {
+            // Si no hay tab activo, ocultar todos los dots
+            projectCard.querySelectorAll('.project-carousel-dots').forEach(container => {
+                container.style.display = 'none';
+            });
+        }
+    });
+});
 
 // ============================================
 // CONSOLE LOG PARA DEBUG (remover en producción)
